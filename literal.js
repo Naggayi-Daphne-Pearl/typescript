@@ -1,6 +1,6 @@
 // 1. Variable declarations 
-var myName;
+var bootcamp;
 //2.  variable definition [assignment]
-myName = 'daphne'; // string literal 
+bootcamp = ["daphne", "kylie"]; // array literal 
 // 3. using a variABLE
-console.log(myName);
+console.log(bootcamp);
