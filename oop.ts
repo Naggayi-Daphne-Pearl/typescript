@@ -10,3 +10,17 @@ class Customer {
 }
 
 // Instaniate a class
+
+
+
+
+// concatenate // escapulation 
+class Student {
+    firstName = 'nagayi'; 
+    lastName  = 'daphne'; 
+
+    public concatenate () {
+        return this.firstName + this.lastName
+    }
+}
+console.log(concatenate(firstName, lastName));
