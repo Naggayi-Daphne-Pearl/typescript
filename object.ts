@@ -23,20 +23,38 @@
 // let customer3:object = {name: 'Pearl', address:'Kabaale'}
 // let customer4:object = {name: 'Jane', address:'Kampala'}
 
-
-
-
 // using constructor method 
-function Jumiacustomer(name:string, address:string){
-   this.name = name; 
-   this.address = address;   
+// function Jumiacustomer(name:string, address:string){
+//    this.name = name; 
+//    this.address = address;   
+// }
+
+// let customer1:object = new Jumiacustomer('John Doe','New york')
+// let customer2:object = new Jumiacustomer('Jane Doe', 'Nasana')
+// let customer3:object = new Jumiacustomer('Pearl','Kabaale')
+// let customer4:object = new Jumiacustomer('Jane','Kampala')
+
+// customer1 ['firstname'] = 'Naggayi'
+// console.log(customer1['firstname']);
+
+
+//using a class
+class Jumiacustomer{
+    name: String;
+    address: String;
+    constructor(name:string, address:string){
+    this.name = name; 
+    this.address = address;   
+ }
 }
 
-let customer1:object = new Jumiacustomer('John Doe','New york')
-let customer2:object = new Jumiacustomer('Jane Doe', 'Nasana')
-let customer3:object = new Jumiacustomer('Pearl','Kabaale')
-let customer4:object = new Jumiacustomer('Jane','Kampala')
-
-customer1 ['firstname'] = 'Naggayi'
-console.log(customer1['firstname']);
-
+// creating objects 
+ let customer1 = new Jumiacustomer('John Doe','New york')
+ let customer2 = new Jumiacustomer('Jane Doe', 'Nasana')
+ let customer3= new Jumiacustomer('Pearl','Kabaale')
+ let customer4 = new Jumiacustomer('Jane','Kampala')
+ 
+ customer1 ['firstname'] = 'Naggayi'
+ console.log(customer1['firstname']);
+ console.log(customer2);
+ 
