@@ -1,10 +1,10 @@
 // 1. Variable declarations 
-var myAge:Number; 
+var myName:string; 
 
 //2.  variable definition [assignment]
-myAge = 120; 
+myName = 'daphne'; // string literal 
 
 // 3. using a variABLE
-console.log(myAge)
+console.log(myName)
 
 

@@ -1,11 +1,6 @@
-// types pf literals
-
-
 // 1. Variable declarations 
-var myAge;
-
+var myName;
 //2.  variable definition [assignment]
-myAge = 120; // creating a number literal
-
+myName = 'daphne'; // string literal 
 // 3. using a variABLE
-console.log(myAge);
+console.log(myName);
