@@ -34,9 +34,9 @@ class Payment {
 
 // inheritance relationship 
 // cash inherits all public variables in payment
-
+// protected makes the propert private and only accessible in the class Protected
 class Cash extends Payment{
-    private cashTendered: any
+    protected cashTendered: any
 }
 // multilevel inheritance is involvement of one or more classes
 class Check extends Payment {
@@ -48,11 +48,12 @@ class BlankCheck extends Check {
 }
 
 class Credit extends Payment {
-    authorized: any
+   
     number: string
     type: string
     expDate: Date 
+    authorized() {return null}
 }
 
-let pm1 = new Cash (); 
-pm1.pay()
+let pm1 = new Payment(); 
+pm1.amount()
