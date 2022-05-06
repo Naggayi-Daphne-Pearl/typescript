@@ -34,13 +34,17 @@ class Payment {
 
 // inheritance relationship 
 // cash inherits all public variables in payment
+
 class Cash extends Payment{
     private cashTendered: any
 }
-
+// multilevel inheritance is involvement of one or more classes
 class Check extends Payment {
     private name: string
     private bankID: string
+}
+class BlankCheck extends Check {
+    authorized: string
 }
 
 class Credit extends Payment {
