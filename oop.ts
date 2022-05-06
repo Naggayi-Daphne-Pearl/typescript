@@ -7,6 +7,8 @@ class Customer {
         this.name = name; 
         this.address = address;
     }
+    //method signature
+    concatenateName(firstName:string, lastName:string):string{return this.name}
 }
 
 // Instaniate a class
@@ -14,13 +16,13 @@ class Customer {
 
 
 
-// concatenate // escapulation 
-class Student {
-    firstName = 'nagayi'; 
-    lastName  = 'daphne'; 
+// // concatenate // escapulation 
+// class Student {
+//     firstName = 'nagayi'; 
+//     lastName  = 'daphne'; 
 
-    public concatenate () {
-        return this.firstName + this.lastName
-    }
-}
-console.log(concatenate(firstName, lastName));
+//     public concatenate () {
+//         return this.firstName + this.lastName
+//     }
+// }
+// console.log(concatenate(firstName, lastName));
