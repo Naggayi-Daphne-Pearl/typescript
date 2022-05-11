@@ -11,6 +11,37 @@ class Keyboard {
         
     }
 }
+class InMemory{
+    memory: Array<any> = []
+    
+    store(data:any){
+        this.memory.push(data)
+    }
+    retrieve (data:any) {
+        this.memory.push(data)
+    }
+
+}
+class CPU {
+    process(data:string){
+        let information = 'Processed: ' + data 
+        return information
+    }
+    
+}
+
+class Monitor {
+    display(data:string){
+        console.log('Displaying: ' + data + 'on monitor');
+    }
+
+}
+class ErrorHandler {
+    handleError(error:any){
+        console.log('error: ' + error);
+        
+    }
+}
 class Computer {
     //data 
     memory: Array<any> = []; 
@@ -20,25 +51,31 @@ class Computer {
         inputMethod.inputDatafromKeyboard('data')
         
     }
-    storeDatatoMemory(data:any){
-        this.memory.push(data)
-        console.log(data);
+    store(data:any){
+        // Delegate 
+        let inMemory = new InMemory()
+        inMemory.store(data)       
         
     }
-    retrievedataFromInMemory(data:any) {
-        this.memory.push(data)
+    retrieve(data:any) {
+        let inMemory = new InMemory();
+        return inMemory.retrieve
+       
         
     }
     process(data:any) {
-        console.log('Processed: ' + data);
+        let processor = new CPU(); 
+        processor.process(data)
         
     }
-    displayDataMonitor(data:any) {
-        console.log('Displaying: ' + data + 'on monitor');
+    display(data:any) {
+       let monitor = new Monitor(); 
+       monitor.display(data) 
         
     }
     handleError(error:any) {
-        console.log('Error: ' + error);
+        let errorHandler = new ErrorHandler();  
+        errorHandler.handleError(error)
         
     }
 }
@@ -49,4 +86,4 @@ class Computer {
 
 // test
 let computer = new Computer(); 
-computer.storeDatatoMemory('row data')
+computer.process('fffff')
