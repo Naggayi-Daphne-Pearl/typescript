@@ -10,6 +10,43 @@ var Keyboard = /** @class */ (function () {
     };
     return Keyboard;
 }());
+var InMemory = /** @class */ (function () {
+    function InMemory() {
+        this.memory = [];
+    }
+    InMemory.prototype.store = function (data) {
+        this.memory.push(data);
+    };
+    InMemory.prototype.retrieve = function (data) {
+        this.memory.push(data);
+    };
+    return InMemory;
+}());
+var CPU = /** @class */ (function () {
+    function CPU() {
+    }
+    CPU.prototype.process = function (data) {
+        var information = 'Processed: ' + data;
+        return information;
+    };
+    return CPU;
+}());
+var Monitor = /** @class */ (function () {
+    function Monitor() {
+    }
+    Monitor.prototype.display = function (data) {
+        console.log('Displaying: ' + data + 'on monitor');
+    };
+    return Monitor;
+}());
+var ErrorHandler = /** @class */ (function () {
+    function ErrorHandler() {
+    }
+    ErrorHandler.prototype.handleError = function (error) {
+        console.log('error: ' + error);
+    };
+    return ErrorHandler;
+}());
 var Computer = /** @class */ (function () {
     function Computer() {
         //data 
@@ -20,24 +57,29 @@ var Computer = /** @class */ (function () {
         var inputMethod = new Keyboard();
         inputMethod.inputDatafromKeyboard('data');
     };
-    Computer.prototype.storeDatatoMemory = function (data) {
-        this.memory.push(data);
-        console.log(data);
+    Computer.prototype.store = function (data) {
+        // Delegate 
+        var inMemory = new InMemory();
+        inMemory.store(data);
     };
-    Computer.prototype.retrievedataFromInMemory = function (data) {
-        this.memory.push(data);
+    Computer.prototype.retrieve = function (data) {
+        var inMemory = new InMemory();
+        return inMemory.retrieve;
     };
     Computer.prototype.process = function (data) {
-        console.log('Processed: ' + data);
+        var processor = new CPU();
+        processor.process(data);
     };
-    Computer.prototype.displayDataMonitor = function (data) {
-        console.log('Displaying: ' + data + 'on monitor');
+    Computer.prototype.display = function (data) {
+        var monitor = new Monitor();
+        monitor.display(data);
     };
     Computer.prototype.handleError = function (error) {
-        console.log('Error: ' + error);
+        var errorHandler = new ErrorHandler();
+        errorHandler.handleError(error);
     };
     return Computer;
 }());
 // test
 var computer = new Computer();
-computer.storeDatatoMemory('row data');
+computer.process('fffff');
