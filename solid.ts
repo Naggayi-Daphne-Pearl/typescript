@@ -1,3 +1,5 @@
+// Car
+
 // Calculator
     //  add, sub, mult, normal division, modulus division, outpution   
 
@@ -62,6 +64,7 @@
             return information
         }
     }
+    
     interface DisplayDevice{
         display(data:any): boolean;
     }
@@ -81,55 +84,57 @@
         }
     }
 
-
-class Computer {
-    // Data
-    inputDevice:InputDevice;
-    memory:Memory;
-    processor:CPU;
-    diplayDevice:DisplayDevice;
-    errorHandler:ErrorHandler  = new ErrorHandler();
-
-
-    // Methods
-    constructor(inputDevice:InputDevice, memory:Memory, processor:CPU, diplayDevice:DisplayDevice){
-        this.inputDevice = inputDevice;
-        this.memory = memory;
-        this.processor = processor;
-        this.diplayDevice = diplayDevice;
+    class Computer {
+        // Data
+        inputDevice:InputDevice;
+        memory:Memory;
+        processor:CPU;
+        diplayDevice:DisplayDevice;
+        errorHandler:ErrorHandler  = new ErrorHandler();
+    
+    
+        // Methods
+        constructor(inputDevice:InputDevice, memory:Memory, processor:CPU, diplayDevice:DisplayDevice){
+            this.inputDevice = inputDevice;
+            this.memory = memory;
+            this.processor = processor;
+            this.diplayDevice = diplayDevice;
+        }
+    
+        input(){
+           return this.inputDevice.inputData();
+        }
+    
+        store(data:any):boolean{
+            // Delegate
+            return this.memory.storeData(data);
+        }
+    
+        retrieve(data:any){
+            return this.memory.retrieveData(null)
+        }
+    
+        process(data:any){
+           this.processor.process(data)
+        }
+    
+        display(data:any){
+            return this.diplayDevice.display(data)
+        }
+    
+        handleError(error:any){
+            this.errorHandler.handleError(error)
+    
+        }
+    
     }
-
-    input(){
-       return this.inputDevice.inputData();
-    }
-
-    store(data:any):boolean{
-        // Delegate
-        return this.memory.storeData(data);
-    }
-
-    retrieve(data:any){
-        return this.memory.retrieveData(null)
-    }
-
-    process(data:any){
-       this.processor.process(data)
-    }
-
-    display(data:any){
-        return this.diplayDevice.display(data)
-    }
-
-    handleError(error:any){
-        this.errorHandler.handleError(error)
-
-    }
-
-}
+    
+    
+    // Test
+    let inputDevice = new KeyBoard()
+    let computer = new Computer(new KeyBoard(), new InMemory(), new CPU(), new Monitor() )
+    computer.diplayDevice = new Monitor();
+    computer.display("fffff");
 
 
-// Test
-let inputDevice = new KeyBoard()
-// let computer = new Computer()
-// computer.diplayDevice = new Monitor();
-// computer.display("fffff");
+
