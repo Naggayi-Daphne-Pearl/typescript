@@ -86,11 +86,11 @@
 
     class Computer {
         // Data
-        inputDevice:InputDevice;
-        memory:Memory;
-        processor:CPU;
-        diplayDevice:DisplayDevice;
-        errorHandler:ErrorHandler  = new ErrorHandler();
+        private inputDevice:InputDevice;
+        private memory:Memory;
+        private processor:CPU;
+        private diplayDevice:DisplayDevice;
+        private errorHandler:ErrorHandler  = new ErrorHandler();
     
     
         // Methods
@@ -126,6 +126,10 @@
             this.errorHandler.handleError(error)
     
         }
+        // setters and getters
+        setInputDevice (){
+            
+        }
     
     }
     
@@ -136,5 +140,10 @@
     computer.diplayDevice = new Monitor();
     computer.display("fffff");
 
-
-
+class Mouse implements InputDevice {
+    inputData() {
+        return 'input by mouse'
+    }
+}
+computer.inputDevice = new Mouse(); 
+console.log(computer);
