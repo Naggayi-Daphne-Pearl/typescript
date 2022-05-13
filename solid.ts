@@ -28,7 +28,7 @@
 // Loosely Cooped Designs?
 // Dependency Inversion Principle:
     // High Level Modules should not depend on low level modules, but instead both should depend on Abstractions
-
+//1. SRP -Single Responsiblity Principle 
     interface InputDevice{
         inputData():any;
     }
@@ -135,6 +135,7 @@
         getInputDevice(){
             return this.inputDevice
         }
+        // make more setters and getters for the different 
 
     
     }
@@ -155,3 +156,17 @@ class Mouse implements InputDevice {
 // setting the value using a setter
 computer.setInputDevice (new Mouse()); 
 console.log(computer.getInputDevice());
+
+// 2. Open closed Principle (OCP)
+    // A class should be opened for extension 
+    // Closes for modification 
+
+class ChargeabableComputer extends Computer {
+    private charger:any; 
+    constructor(inputDevice:InputDevice, memory:Memory, processor:CPU, diplayDevice:DisplayDevice){
+        super(inputDevice, memory, processor, diplayDevice)
+        this.charger = charger; 
+        
+    }
+   
+}
