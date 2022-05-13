@@ -127,9 +127,15 @@
     
         }
         // setters and getters
-        setInputDevice (){
-            
+            //Getters and setters are used to protect your data, particularly when creating classes.
+            //For each instance variable, a getter method returns its value while a setter method sets or updates its value.
+        setInputDevice (inputDevice:InputDevice){
+            this.inputDevice = inputDevice
         }
+        getInputDevice(){
+            return this.inputDevice
+        }
+
     
     }
     
@@ -145,5 +151,7 @@ class Mouse implements InputDevice {
         return 'input by mouse'
     }
 }
-computer.inputDevice = new Mouse(); 
-console.log(computer);
+
+// setting the value using a setter
+computer.setInputDevice (new Mouse()); 
+console.log(computer.getInputDevice());
